@@ -5,20 +5,20 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <Space
+    <Spinner
+        android:id="@+id/filterSortSpin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="30" />
+        android:layout_marginBottom="16dp"
+        android:padding="8dp"/>
 
-    <TextView
-        android:id="@+id/textView2"
+    <ListView
+        android:id="@+id/lvRecords"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="40"
-        android:text="TextView" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp"
+        android:padding="8dp" />
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="30" />
 </LinearLayout>

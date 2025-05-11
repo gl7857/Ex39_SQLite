@@ -4,22 +4,38 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
+/**
+ * Activity for displaying credits.
+ * This activity shows the credits screen and allows the user to navigate back to the main activity.
+ *
+ * @author      Gali Lavi <gl7857@bs.amalnet.k12.il>
+ * @version     1.0
+ * @since       15/04/2025
+ *
+ * short description:
+ *        This activity enables edge-to-edge display and shows a credits screen.
+ *        It provides a simple interface with a menu that allows the user to navigate back to
+ *        the main screen.
+ */
+
+public class Credits extends AppCompatActivity {
+    /**
+     * Called when the activity is first created.
+     * Enables edge-to-edge display and sets the content view to the credits screen layout.
+     *
+     * @param savedInstanceState a Bundle containing the activity's previously saved state
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_credits);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

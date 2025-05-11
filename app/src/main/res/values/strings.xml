@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Ex39_SQLite</string>
+    <string-array name="ArrTable">
+        <item>בחר טבלה להצגה</item>
+        <item>Employees</item>
+        <item>Meals</item>
+        <item>Food Providers</item>
+        <item>Orders</item>
+    </string-array>
 </resources>
