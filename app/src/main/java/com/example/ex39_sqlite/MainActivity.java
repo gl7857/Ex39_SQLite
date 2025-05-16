@@ -12,8 +12,19 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
+/**
+ * @author      Gali Lavi <gl7857@bs.amalnet.k12.il>
+ * @version     1.0
+ * @since       15/04/2025
+ *
+ * short description:
+ *      MainActivity is the entry point of the app.
+ *      It sets up the main screen layout and handles
+ *      menu item selections to navigate to different activities.
+ *
+ */
 
+public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

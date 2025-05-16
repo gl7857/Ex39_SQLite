@@ -18,6 +18,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
+/**
+ * Represents an employee with identifying and contact information.
+ * @author      Gali Lavi <gl7857@bs.amalnet.k12.il>
+ * @version     1.0
+ * @since       15/04/2025
+ * short description:
+ *      This activity displays data from selected database tables
+ *      using a Spinner and ListView.
+ */
+
 public class DisplayActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private Spinner spinTables;
@@ -52,6 +62,9 @@ public class DisplayActivity extends AppCompatActivity implements AdapterView.On
         spinTables.setAdapter(adp);
     }
 
+    /**
+     * Displays the records from the selected database table in a ListView.
+     */
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long id) {
         tbl.clear();
@@ -78,7 +91,11 @@ public class DisplayActivity extends AppCompatActivity implements AdapterView.On
                 String company = crsr.getString(colCompany);
                 String idNumber = crsr.getString(colIDNumber);
                 String phone = crsr.getString(colPhone);
-                String tmp = cardId + ", " + firstName + " " + lastName + ", " + company + ", " + idNumber + ", " + phone;
+                String tmp = "Card ID: " + cardId + "\n"
+                        + "Name: " + firstName + " " + lastName + "\n"
+                        + "Company: " + company + "\n"
+                        + "ID Number: " + idNumber + "\n"
+                        + "Phone: " + phone;
                 tbl.add(tmp);
                 crsr.moveToNext();
             }
@@ -99,7 +116,12 @@ public class DisplayActivity extends AppCompatActivity implements AdapterView.On
                 String sideDish = crsr.getString(colSideDish);
                 String dessert = crsr.getString(colDessert);
                 String drink = crsr.getString(colDrink);
-                String tmp = mealId + ", " + starter + ", " + mainCourse + ", " + sideDish + ", " + dessert + ", " + drink;
+                String tmp = "Meal ID: " + mealId + "\n"
+                        + "Starter: " + starter + "\n"
+                        + "Main Course: " + mainCourse + "\n"
+                        + "Side Dish: " + sideDish + "\n"
+                        + "Dessert: " + dessert + "\n"
+                        + "Drink: " + drink;
                 tbl.add(tmp);
                 crsr.moveToNext();
             }
@@ -116,7 +138,10 @@ public class DisplayActivity extends AppCompatActivity implements AdapterView.On
                 String companyName = crsr.getString(colCompanyName);
                 String mainPhone = crsr.getString(colMainPhone);
                 String secondaryPhone = crsr.getString(colSecondaryPhone);
-                String tmp = providerId + ", " + companyName + ", " + mainPhone + ", " + secondaryPhone;
+                String tmp = "Provider ID: " + providerId + "\n"
+                        + "Company Name: " + companyName + "\n"
+                        + "Main Phone: " + mainPhone + "\n"
+                        + "Secondary Phone: " + secondaryPhone;
                 tbl.add(tmp);
                 crsr.moveToNext();
             }
@@ -137,7 +162,12 @@ public class DisplayActivity extends AppCompatActivity implements AdapterView.On
                 int employeeId = crsr.getInt(colEmployeeID);
                 int mealId = crsr.getInt(colMealID);
                 int providerId = crsr.getInt(colProviderID);
-                String tmp = orderId + ", " + date + ", " + time + ", " + employeeId + ", " + mealId + ", " + providerId;
+                String tmp = "Order ID: " + orderId + "\n"
+                        + "Date: " + date + "\n"
+                        + "Time: " + time + "\n"
+                        + "Employee ID: " + employeeId + "\n"
+                        + "Meal ID: " + mealId + "\n"
+                        + "Provider ID: " + providerId;
                 tbl.add(tmp);
                 crsr.moveToNext();
             }
@@ -150,29 +180,51 @@ public class DisplayActivity extends AppCompatActivity implements AdapterView.On
         lvrecords.setAdapter(adp);
     }
 
+    /**
+     * Callback method invoked when no item is selected.
+     * Currently, no action is taken.
+     */
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {}
 
+    /**
+     * Creates the options menu.
+     * @param menu The options menu in which items are placed.
+     * @return True for the menu to be displayed.
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
-    @Override
+    /**
+     * Handles item selections in the options menu.
+     * @param item The menu item that was selected.
+     * @return True if the event was handled.
+     */
     public boolean onOptionsItemSelected(@Nullable MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.menuCredits) {
-            startActivity(new Intent(this, Credits.class));
-        } else if (id == R.id.menuSortAndFilter) {
-            startActivity(new Intent(this, sortActivity.class));
-        } else if (id == R.id.menuDisplayData) {
-            startActivity(new Intent(this, DisplayActivity.class));
-        } else if (id == R.id.menuAddData) {
-            startActivity(new Intent(this, AddActivity.class));
-        } else if (id == R.id.menuRemoveData) {
-            startActivity(new Intent(this, removeDataActivity.class));
+        if(id == R.id.menuCredits) {
+            Intent si = new Intent(this, Credits.class);
+            startActivity(si);
+        }
+        else if (id == R.id.menuSortAndFilter) {
+            Intent si = new Intent(this, sortActivity.class);
+            startActivity(si);
+        }
+        else if (id == R.id.menuDisplayData) {
+            Intent si = new Intent(this, DisplayActivity.class);
+            startActivity(si);
+        }
+        else if (id == R.id.menuAddData) {
+            Intent si = new Intent(this, AddActivity.class);
+            startActivity(si);
+        }
+        else if (id == R.id.menuRemoveData) {
+            Intent si = new Intent(this, removeDataActivity.class);
+            startActivity(si);
         }
 
         return true;

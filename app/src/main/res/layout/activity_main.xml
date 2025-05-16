@@ -3,22 +3,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="30" />
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="#A8E6CF"> <!-- Light green background -->
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
+        android:id="@+id/appTitle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="40"
-        android:text="TextView" />
+        android:fontFamily="sans-serif-light"
+        android:gravity="center"
+        android:paddingBottom="16dp"
+        android:text="GYNBite"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
+        android:textStyle="bold" />
 
-    <Space
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/appSubtitle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="30" />
+        android:text="Meal Management System for Gav-Yam Negev Park"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center"
+        android:paddingBottom="8dp" />
+
+    <TextView
+        android:id="@+id/appDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Daily lunch access with GYNbus card for park employees"
+        android:textSize="14sp"
+        android:textColor="#FFFFFF"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center" />
 </LinearLayout>

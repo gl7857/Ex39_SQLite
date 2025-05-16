@@ -9,7 +9,15 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-
+/**
+ * @author      Gali Lavi <gl7857@bs.amalnet.k12.il>
+ * @version     1.0
+ * @since       15/04/2025
+ *
+ * short description:
+ *      Manages database creation and version management for the app.
+ *      Creates and upgrades tables for employees, meals, food providers, and orders.
+ */
 
 /**
  * The type HelperDB
@@ -38,41 +46,41 @@ public class HelperDB extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        strCreate="CREATE TABLE "+TABLE_EMPLOYEES;
-        strCreate+=" ("+Employees.CARD_ID+"TEXT";
+        strCreate="CREATE TABLE "+Employees.TABLE_EMPLOYEES;
+        strCreate+=" ("+Employees.CARD_ID+" TEXT,";
         strCreate+=" "+Employees.FIRST_NAME+" TEXT,";
         strCreate+=" "+Employees.LAST_NAME+" TEXT,";
-        strCreate+=" "+Employees.COMPANY+" TEXT";
-        strCreate+=" "+Employees.ID_NUMBER+" TEXT";
+        strCreate+=" "+Employees.COMPANY+" TEXT,";
+        strCreate+=" "+Employees.ID_NUMBER+" TEXT,";
         strCreate+=" "+Employees.PHONE+" TEXT";
         strCreate+=");";
         db.execSQL(strCreate);
 
-        strCreate="CREATE TABLE "+TABLE_MEALS;
-        strCreate+=" ("+Meals.MEAL_ID+"TEXT";
-        strCreate+=" ("+Meals.STARTER+"TEXT";
-        strCreate+=" ("+Meals.MAIN_COURSE+"TEXT";
-        strCreate+=" ("+Meals.SIDE_DISH+"TEXT";
-        strCreate+=" ("+Meals.DESSERT+"TEXT";
-        strCreate+=" ("+Meals.DRINK+"TEXT";
+        strCreate="CREATE TABLE "+Meals.TABLE_MEALS;
+        strCreate+=" ("+Meals.MEAL_ID+" TEXT,";
+        strCreate+=" "+Meals.STARTER+" TEXT,";
+        strCreate+=" "+Meals.MAIN_COURSE+" TEXT,";
+        strCreate+=" "+Meals.SIDE_DISH+" TEXT,";
+        strCreate+=" "+Meals.DESSERT+" TEXT,";
+        strCreate+=" "+Meals.DRINK+" TEXT";
         strCreate+=");";
         db.execSQL(strCreate);
 
-        strCreate="CREATE TABLE "+TABLE_FOOD_PROVIDERS;
-        strCreate+=" ("+FoodProviders.PROVIDER_ID+"TEXT";
-        strCreate+=" ("+FoodProviders.COMPANY_NAME+"TEXT";
-        strCreate+=" ("+FoodProviders.MAIN_PHONE+"TEXT";
-        strCreate+=" ("+FoodProviders.SECONDARY_PHONE+"TEXT";
+        strCreate="CREATE TABLE "+FoodProviders.TABLE_FOOD_PROVIDERS;
+        strCreate+=" ("+FoodProviders.PROVIDER_ID+" TEXT,";
+        strCreate+=" "+FoodProviders.COMPANY_NAME+" TEXT,";
+        strCreate+=" "+FoodProviders.MAIN_PHONE+" TEXT,";
+        strCreate+=" "+FoodProviders.SECONDARY_PHONE+" TEXT";
         strCreate+=");";
         db.execSQL(strCreate);
 
-        strCreate="CREATE TABLE "+TABLE_ORDERS;
-        strCreate+=" ("+Orders.ORDER_ID+"TEXT";
-        strCreate+=" ("+Orders.DATE+"TEXT";
-        strCreate+=" ("+Orders.TIME+"TEXT";
-        strCreate+=" ("+Orders.EMPLOYEE_ID+"TEXT";
-        strCreate+=" ("+Orders.MEAL_ID+"TEXT";
-        strCreate+=" ("+Orders.PROVIDER_ID+"TEXT";
+        strCreate="CREATE TABLE "+Orders.TABLE_ORDERS;
+        strCreate+=" ("+Orders.ORDER_ID+" TEXT,";
+        strCreate+=" "+Orders.DATE+" TEXT,";
+        strCreate+=" "+Orders.TIME+" TEXT,";
+        strCreate+=" "+Orders.EMPLOYEE_ID+" TEXT,";
+        strCreate+=" "+Orders.MEAL_ID+" TEXT,";
+        strCreate+=" "+Orders.PROVIDER_ID+" TEXT";
         strCreate+=");";
         db.execSQL(strCreate);
 
@@ -80,12 +88,7 @@ public class HelperDB extends SQLiteOpenHelper {
     }
 
     /**
-     * onUpgrade
-     * <p>
-     * This method upgrade the database
-     * @param db the SQLite database
-     * @param oldVer the old version code
-     * @param newVer the new version code
+     * Upgrades the database by dropping all existing tables and recreating them.
      */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVer, int newVer) {
